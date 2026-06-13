@@ -8,7 +8,7 @@ export default function Students() {
 
   // Fetch all students when the page loads
   useEffect(() => {
-    fetch('http://localhost:8000/api/students/all')
+    fetch('https://student360-python-react.onrender.com/api/students/all')
       .then(response => response.json())
       .then(data => setAllStudents(data))
       .catch(error => console.error("Error fetching students:", error))

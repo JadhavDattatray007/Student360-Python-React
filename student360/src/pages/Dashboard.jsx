@@ -29,7 +29,7 @@ export default function Dashboard() {
 
   // 2. HELPER FUNCTION TO FETCH DATA
   const fetchStudents = () => {
-    fetch('http://localhost:8000/api/top-performers')
+    fetch('https://student360-python-react.onrender.com/api/top-performers')
       .then(response => response.json())
       .then(data => setTopPerformers(data))
       .catch(error => console.error("Error fetching data:", error))
@@ -45,7 +45,7 @@ export default function Dashboard() {
     e.preventDefault() // Stops the page from refreshing when you click submit
     
     // Send the data to our Python backend!
-    fetch('http://localhost:8000/api/students', {
+    fetch('https://student360-python-react.onrender.com/api/students', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
