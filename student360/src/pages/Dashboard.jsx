@@ -100,9 +100,9 @@ export default function Dashboard() {
             <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-1">Signed in as</p>
             <p className="text-sm font-semibold truncate">admin@student360.edu</p>
           </div>
-          <button onClick={() => navigate('/')} className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-slate-200 text-slate-600 rounded hover:bg-slate-50 hover:text-slate-900 font-bold text-xs uppercase tracking-wider transition-colors">
-            <LogOut size={14} /> Sign Out
-          </button>
+          <button onClick={() => { localStorage.removeItem('isAuthenticated'); navigate('/'); }} className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-slate-200 text-slate-600 rounded hover:bg-slate-50 hover:text-slate-900 font-bold text-xs uppercase tracking-wider transition-colors">
+  <LogOut size={14} /> Sign Out
+</button>
         </div>
       </aside>
 

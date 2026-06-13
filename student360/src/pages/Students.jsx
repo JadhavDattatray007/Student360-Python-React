@@ -42,9 +42,12 @@ export default function Students() {
           </nav>
         </div>
         <div className="p-4 border-t border-slate-100">
-          <button onClick={() => navigate('/')} className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-slate-200 text-slate-600 rounded hover:bg-slate-50 hover:text-slate-900 font-bold text-xs uppercase tracking-wider transition-colors">
+          
+          {/* ---> UPDATED SIGN OUT BUTTON <--- */}
+          <button onClick={() => { localStorage.removeItem('isAuthenticated'); navigate('/'); }} className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-slate-200 text-slate-600 rounded hover:bg-slate-50 hover:text-slate-900 font-bold text-xs uppercase tracking-wider transition-colors">
             <LogOut size={14} /> Sign Out
           </button>
+
         </div>
       </aside>
 
