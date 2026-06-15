@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import models
@@ -87,3 +87,19 @@ def get_all_students(db: Session = Depends(get_db)):
         })
         
     return result
+
+# --- DELETE A STUDENT ---
+@app.delete("/api/students/{student_id}")
+def delete_student(student_id: int, db: Session = Depends(get_db)):
+    # 1. Find the student in the database
+    student_to_delete = db.query(models.Student).filter(models.Student.id == student_id).first()
+    
+    # 2. If they don't exist, throw an error
+    if not student_to_delete:
+        raise HTTPException(status_code=404, detail="Student not found")
+        
+    # 3. If they do exist, delete them and save the changes
+    db.delete(student_to_delete)
+    db.commit()
+    
+    return {"status": "success", "message": f"Student {student_id} deleted successfully"}
