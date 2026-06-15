@@ -17,7 +17,7 @@ export default function Students() {
     if (window.confirm("Are you sure you want to delete this student?")) {
       
       // We are pointing this at localhost because our new Python Delete route is only on our computer right now!
-      fetch(`http://localhost:8000/api/students/${id}`, {
+      fetch(`https://student360-python-react.onrender.com/api/students/${id}`, {
         method: 'DELETE',
       })
       .then(response => {
